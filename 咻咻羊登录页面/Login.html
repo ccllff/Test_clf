@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>咻咻羊登录页面</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/Login.css">
+</head>
+<!--[if lte IE 9]>
+  <script>if (!/update\.htm/.test(location.href)) window.location = ''; </script>
+<![endif]-->
+
+<body>
+    <div class="loginWrap">
+
+        <!-- 表单 -->
+        <div class="loginForm">
+            <h1 class="title">咻咻羊登录授权中心</h1>
+            <ul class="sheet">
+                <li class="item">
+                    <label for="" class="icon icon_user"></label>
+                    <input type="text" name="user" placeholder="用户名或者手机号">
+                </li>
+                <li class="item">
+                    <label for="" class="icon icon_pasw"></label>
+                    <input type="password" name="password" placeholder="请输入密码">
+                </li>
+                <li class="item special">
+                    <div class="iptBox">
+                        <label for="" class="icon icon_QRcode"></label>
+                        <input type="text" class="verification" name="verification" placeholder="验证码">
+                    </div>
+                    <img src="img/backdrop.jpg" class="codeImage" alt="验证码">
+                </li>
+            </ul>
+            <button class="subimtBtn">登录</button>
+        </div>
+
+        <!-- 二维码&电话 -->
+        <div class="codeBox">
+            <img src="img/QR code.jpg" alt="二维码">
+            <div class="details">
+                <p>如有任何疑问可拨打客服电话</p>
+                <h3>400 000 3473</h3>
+                <p>咻咻羊（厦门）信息科技有限公司</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/commons.js"></script>
+<script src="js/toast.js"></script>
+<script>
+    $(function () {
+        // 验证图片点击事件
+        $('.codeImage').on('click', function () {
+            var src = $(this).attr('src');
+            $('body').toast({
+                content: src,
+                duration: 1000
+            });
+        });
+
+        // 登录按钮点击事件
+        $('.subimtBtn').on('click', function () {
+            var user = $.trim($('input[name="user"]').val());
+            var password = $.trim($('input[name="password"]').val());
+            var verification = $.trim($('input[name="verification"]').val());
+
+            if (!user) {
+                $('body').toast({
+                    content: '请输入用户名',
+                    duration: 1000
+                });
+                return false
+            } else if (!password) {
+                $('body').toast({
+                    content: '请输入密码',
+                    duration: 1000
+                });
+                return false
+            } else if (!verification) {
+                $('body').toast({
+                    content: '请输入验证码',
+                    duration: 1000
+                });
+                return false
+            } else {
+                alert('验证通过开始发起请求')
+            }
+
+        });
+
+    });
+</script>

@@ -1,0 +1,228 @@
+html,
+body {
+    height: 100%;
+    font-family: 'MicrosoftYaHei';
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.icon_user {
+    background-image: url('../img/user.png');
+}
+
+.icon_pasw {
+    background-image: url('../img/pasw.png');
+}
+
+.icon_QRcode {
+    background-image: url('../img/QRcode.png');
+}
+
+.loginWrap {
+    height: 100%;
+    background: url('../img/backdrop.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.loginForm {
+    width: 411px;
+    height: 378px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 8px 0px rgba(16, 31, 59, 0.26);
+    border-radius: 4px;
+    position: absolute;
+    top: -moz-calc(50% - 200px);
+    top: -webkit-calc(50% - 200px);
+    top: calc(50% - 200px);
+    right: 317px;
+    padding-left: 48px;
+    padding-top: 68px;
+    box-sizing: border-box;
+}
+
+.loginForm h1.title {
+    font-size: 22px;
+    line-height: 1;
+    font-weight: normal;
+    letter-spacing: 3px;
+    color: #101f3b;
+    text-indent: 11px;
+    margin-bottom: 28px;
+}
+
+/* .loginForm .sheet {} */
+
+.loginForm .sheet .item {
+    width: 313px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: solid 1px #dddddd;
+}
+
+.loginForm .sheet .item label {
+    width: 19px;
+    height: 19px;
+    background-color: #101f3b;
+    margin-right: 10px;
+    margin-left: 13px;
+}
+
+.loginForm .sheet .item input {
+    font-size: 12px;
+    border: 0 none;
+    outline: 0 none;
+    color: #888888;
+}
+
+.loginForm .sheet .item.special {
+    border: 0 none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loginForm .sheet .item.special .iptBox {
+    width: 194px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border: solid 1px #dddddd;
+}
+
+.loginForm .sheet .item.special img {
+    width: 107px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: solid 1px #dddddd;
+}
+
+.loginForm button.subimtBtn {
+    cursor: pointer;
+    width: 313px;
+    height: 40px;
+    background-color: #101f3b;
+    border-radius: 4px;
+    border: 0 none;
+    outline: 0 none;
+    font-size: 16px;
+    letter-spacing: 9px;
+    color: #ffffff;
+}
+
+.loginForm button.subimtBtn:hover {
+    -moz-box-shadow: 0px 0px 6px #101f3b;
+    -webkit-box-shadow: 0px 0px 6px #101f3b;
+    box-shadow: 0px 0px 6px #101f3b;
+}
+
+.loginForm button.subimtBtn:active {
+    box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.4),
+        0px -1px 5px rgba(255, 255, 255, 0.2),
+        0px 2px 0px #1e4766,
+        0px 4px 5px rgba(0, 0, 0, 0.5);
+
+    -moz-box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.4),
+        0px -1px 5px rgba(255, 255, 255, 0.2),
+        0px 2px 0px #1e4766,
+        0px 4px 5px rgba(0, 0, 0, 0.5);
+
+
+    -webkit-box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.4),
+        0px -1px 5px rgba(255, 255, 255, 0.2),
+        0px 2px 0px #1e4766,
+        0px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.codeBox {
+    width: 396px;
+    height: 111px;
+    position: absolute;
+    bottom: 61px;
+    left: 133px;
+    display: flex;
+    color: #ffffff;
+}
+
+.codeBox img {
+    width: 111px;
+    height: 111px;
+    display: block;
+}
+
+.codeBox .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 0 15px 18px;
+}
+
+.codeBox .details p {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.codeBox .details h3 {
+    font-family: 'MicrosoftYaHei-Bold';
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.cpt-toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    animation-duration: .3s;
+    max-width: 300px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
+    font-family: 微软雅黑, microsoft yahei;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    word-wrap: break-word;
+}
+
+/* 媒体查询 */
+@media (max-width: 1024px) {
+    .loginForm {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .codeBox {
+        position: absolute;
+        bottom: 61px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}
