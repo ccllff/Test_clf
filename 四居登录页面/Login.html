@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四居融资租凭页面</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/Login.css">
+</head>
+<!--[if lte IE 9]>
+  <script>if (!/update\.htm/.test(location.href)) window.location = ''; </script>
+<![endif]-->
+
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <img src="img/maxlogo.png" class="logo" alt="logo">
+        <img src="img/tel.png" class="tel" alt="tel">
+
+        <img src="img/minlogo.png" class="logo2" alt="logo">
+    </div>
+    <!-- 中部内容 -->
+    <div class="loginWrap">
+        <div class="loginForm">
+            <h1 class="title">欢迎登录</h1>
+            <hr class="cutOff">
+            <ul class="sheet">
+                <li class="item">
+                    <label for="">用户名</label>
+                    <input type="text" name="user" placeholder="用户名或者手机号">
+                </li>
+                <li class="item">
+                    <label for="">密码</label>
+                    <input type="password" name="password" placeholder="请输入密码">
+                </li>
+                <li class="item special">
+                    <label for="">验证码</label>
+                    <input type="text" class="verification" name="verification" placeholder="验证码">
+                    <img src="img/backdrop.jpg" class="codeImage" alt="验证码">
+                </li>
+            </ul>
+            <button class="subimtBtn">登录</button>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer">
+        <img src="img/QRcode.png" class="QRcode" alt="QRcode">
+    </div>
+
+</body>
+
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/commons.js"></script>
+<script src="js/toast.js"></script>
+<script>
+    $(function () {
+        // 验证图片点击事件
+        $('.codeImage').on('click', function () {
+            var src = $(this).attr('src');
+            $('body').toast({
+                content: src,
+                duration: 1000
+            });
+        });
+
+        // 登录按钮点击事件
+        $('.subimtBtn').on('click', function () {
+            var user = $.trim($('input[name="user"]').val());
+            var password = $.trim($('input[name="password"]').val());
+            var verification = $.trim($('input[name="verification"]').val());
+
+            if (!user) {
+                $('body').toast({
+                    content: '请输入用户名',
+                    duration: 1000
+                });
+                return false
+            } else if (!password) {
+                $('body').toast({
+                    content: '请输入密码',
+                    duration: 1000
+                });
+                return false
+            } else if (!verification) {
+                $('body').toast({
+                    content: '请输入验证码',
+                    duration: 1000
+                });
+                return false
+            } else {
+                alert('验证通过开始发起请求')
+            }
+
+        });
+
+    });
+</script>
