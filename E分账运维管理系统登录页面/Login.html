@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E分账运维管理系统登录页面</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/Login.css">
+</head>
+<!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<body>
+    <div class="loginWrap">
+        <!-- 表单 -->
+        <div class="loginForm clearfix">
+            <img src="img/banner.png" class="banner" alt="banner">
+            <div class="loginBox">
+                <img src="img/logo.png" class="titleImg" alt="标题">
+                <ul class="sheet">
+                    <li class="item">
+                        <label for="" class="icon icon_user"></label>
+                        <input type="text" name="user" placeholder="请输入管理员账号">
+                    </li>
+                    <li class="item">
+                        <label for="" class="icon icon_pasw"></label>
+                        <input type="password" name="password" placeholder="请输入账号密码">
+                    </li>
+                    <li class="item special">
+                        <div class="iptBox">
+                            <label for="" class="icon icon_QRcode"></label>
+                            <input type="text" class="verification" name="verification" placeholder="请输入验证码">
+                        </div>
+                        <img src="img/backdrop.png" class="codeImage" alt="验证码">
+                    </li>
+                </ul>
+                <button class="subimtBtn">登录</button>
+                <p class="tis">推荐使用谷歌浏览器获得最佳体验</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="cp">Copyright © 2019-至今 E分账 All Rights Reserved</p>
+    
+</body>
+
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/commons.js"></script>
+<script src="js/toast.js"></script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = Math.floor(100 * (clientWidth / 1920)) + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script>
+    $(function () {
+        // 验证图片点击事件
+        $('.codeImage').on('click', function () {
+            var src = $(this).attr('src');
+            $('body').toast({
+                content: src,
+                duration: 1000
+            });
+        });
+
+        // 登录按钮点击事件
+        $('.subimtBtn').on('click', function () {
+            var user = $.trim($('input[name="user"]').val());
+            var password = $.trim($('input[name="password"]').val());
+            var verification = $.trim($('input[name="verification"]').val());
+
+            if (!user) {
+                $('body').toast({
+                    content: '请输入管理员账号',
+                    duration: 1000
+                });
+                return false
+            } else if (!password) {
+                $('body').toast({
+                    content: '请输入账号密码',
+                    duration: 1000
+                });
+                return false
+            } else if (!verification) {
+                $('body').toast({
+                    content: '请输入验证码',
+                    duration: 1000
+                });
+                return false
+            } else {
+                alert('验证通过开始发起请求')
+            }
+
+        });
+
+    });
+</script>
